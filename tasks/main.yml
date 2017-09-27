@@ -95,6 +95,14 @@
     group: jenkins
     mode: 0644
 
+- name: Copy maven config
+  template:
+    src: hudson.tasks.Maven.xml
+    dest: "{{jenkins_home}}"
+    owner: jenkins
+    group: jenkins
+    mode: 0644
+
 - name: Start service
   service:
     name: jenkins
