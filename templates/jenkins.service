@@ -6,9 +6,9 @@ Requires=network.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/sysconfig/jenkins
-ExecStart={{jdk_basedir}}/jdk1.8.0_131/bin/java ${JENKINS_JAVA_OPTIONS} -jar /usr/lib/jenkins/jenkins.war --httpPort=${JENKINS_PORT} --httpListenAddress=${JENKINS_LISTEN_ADDRESS} ${JENKINS_ARGS}
+ExecStart={{jdk_basedir}}/jdk1.8.0_131/bin/java ${JENKINS_JAVA_OPTIONS} -jar {{jenkins_home}}/jenkins.war --httpPort=${JENKINS_PORT} --httpListenAddress=${JENKINS_LISTEN_ADDRESS} ${JENKINS_ARGS}
 Restart=always
-User=jenkins
+User={{jenkins_user}}
 RestartSec=20
 
 [Install]

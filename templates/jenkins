@@ -1,13 +1,13 @@
 ## Path:        Development/Jenkins
 ## Description: Jenkins Automation Server
 ## Type:        string
-## Default:     "/var/lib/jenkins"
+## Default:     "{{jenkins_home}}"
 ## ServiceRestart: jenkins
 #
 # Directory where Jenkins store its configuration and working
 # files (checkouts, build reports, artifacts, ...).
 #
-JENKINS_HOME="/var/lib/jenkins"
+JENKINS_HOME="{{jenkins_home}}"
 
 ## Type:        string
 ## Default:     ""
@@ -26,7 +26,7 @@ JENKINS_JAVA_CMD="{{jdk_basedir}}/jdk1.8.0_131/bin/java"
 # Be careful when you change this, as you need to update
 # permissions of $JENKINS_HOME and /var/log/jenkins.
 #
-JENKINS_USER="jenkins"
+JENKINS_USER="{{jenkins_user}}"
 
 ## Type:        string
 ## Default: "false"

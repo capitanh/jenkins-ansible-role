@@ -28,16 +28,6 @@
     group: root
     mode: 0600
 
-- name: Copy config.xml template
-  template:
-    src: config.xml
-    dest: "{{jenkins_home}}"
-
-#- name: Remove old initd service script
-#  file:
-#    path: /etc/init.d/jenkins
-#    state: absent
-
 - name: Copy service template
   template:
     src: jenkins.service
@@ -60,48 +50,46 @@
     path: "{{jenkins_home}}/users/admin"
     state: directory
     recurse: yes
-    owner: jenkins
-    group: jenkins
+    owner: "{{jenkins_user}}"
+    group: "{{jenkins_user}}"
 
 - name: Create secrets directory
   file:
     path: "{{jenkins_home}}/secrets"
     state: directory
     recurse: yes
-    owner: jenkins
-    group: jenkins
+    owner: "{{jenkins_user}}"
+    group: "{{jenkins_user}}"
 
 - name: Copy admin user template
   template:
     src: admin-config.xml
     dest: "{{jenkins_home}}/users/admin/config.xml"
-    owner: jenkins
-    group: jenkins
+    owner: "{{jenkins_user}}"
+    group: "{{jenkins_user}}"
     mode: 0644
 
-- name: Disable jenkins CLI
+- name: Copy config files
   copy:
-    src: jenkins.CLI.xml
+    src: "{{item}}"
     dest: "{{jenkins_home}}"
-    owner: jenkins
-    group: jenkins
+    owner: "{{jenkins_user}}"
+    group: "{{jenkins_user}}"
     mode: 0644
+  with_items:
+    - jenkins.CLI.xml
+    - slave-to-master-security-kill-switch
 
-- name: Enable Agent-Master Access Control
-  copy:
-    src: slave-to-master-security-kill-switch
-    dest: "{{jenkins_home}}/secrets"
-    owner: jenkins
-    group: jenkins
-    mode: 0644
-
-- name: Copy maven config
+- name: Copy config templates
   template:
-    src: hudson.tasks.Maven.xml
+    src: "{{item}}"
     dest: "{{jenkins_home}}"
-    owner: jenkins
-    group: jenkins
+    owner: "{{jenkins_user}}"
+    group: "{{jenkins_user}}"
     mode: 0644
+  with_items:
+    - config.xml
+    - hudson.tasks.Maven.xml
 
 - name: Start service
   service:
