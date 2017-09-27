@@ -1,5 +1,5 @@
 ---
-- import_playbook: maven.yml
+- import_playbook: "{{role_path}}/tasks/maven.yml"
 
 - name: Install required packages
   yum:
