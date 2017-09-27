@@ -1,4 +1,7 @@
 ---
+- name: Install maven
+  import_playbook: maven.yml
+
 - name: Install required packages
   yum:
     name: "{{item}}"
