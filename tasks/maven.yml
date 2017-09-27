@@ -1,0 +1,13 @@
+---
+- name: Download and uncompress archive
+  unarchive:
+    src: "http://www-us.apache.org/dist/maven/maven-3/{{maven_version}}/binaries/apache-maven-{{maven_version}}-bin.tar.gz"
+    dest: "{{maven_install_dir}}"
+
+- name: Set environment variables
+  template:
+    src: maven.sh
+    dest: /etc/profile.d
+    owner: root
+    group: root
+    mode: 0644
