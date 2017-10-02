@@ -110,6 +110,7 @@
     params: "{{jenkins_params}}"
     name: "{{item}}"
     timeout: 30
+    state: present
   with_items: "{{jenkins_plugins}}"
 # notify: restart jenkins
 
