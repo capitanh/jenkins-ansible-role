@@ -21,10 +21,7 @@
           <filter></filter>
         </groupMembershipStrategy>
         <managerDN>cn={{ldap_username}},{{ldap_basedn}}</managerDN>
-        <!--
         <managerPasswordSecret>{AQAAABAAAAAQl83dDUipga58osU/GN9laVMY4+8POeuZxULqiTf/MS8=}</managerPasswordSecret>
-        -->
-        <managerPasswordSecret>{{ldap_password}}</managerPasswordSecret>
         <displayNameAttributeName>cn</displayNameAttributeName>
         <mailAddressAttributeName>mail</mailAddressAttributeName>
         <extraEnvVars class="linked-hash-map">
