@@ -1,13 +1,14 @@
 ---
 - name: Download and uncompress archive
   unarchive:
-    src: "http://www-us.apache.org/dist/maven/maven-3/{{maven_version}}/binaries/apache-maven-{{maven_version}}-bin.tar.gz"
+    src: "https://services.gradle.org/distributions/gradle-{{gradle_version}}-bin.zip"
     dest: "{{dev_tools_dir}}"
     remote_src: yes
+    creates: "{{dev_tools_dir}}/gradle-{{gradle_version}}"
 
 - name: Set environment variables
   template:
-    src: maven.sh
+    src: gradle.sh
     dest: /etc/profile.d
     owner: root
     group: root

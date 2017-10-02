@@ -1,5 +1,6 @@
 ---
 - include_tasks: maven.yml
+- include_tasks: gradle.yml
 
 - name: Install required packages
   yum:
