@@ -1,13 +1,14 @@
 ---
-- include_tasks: maven.yml
-- include_tasks: gradle.yml
-
 - name: Install required packages
   yum:
     name: "{{item}}"
     state: present
   with_items:
   - git
+  - unzip
+
+- include_tasks: maven.yml
+- include_tasks: gradle.yml
 
 - name: Add jenkins repo
   yum_repository:
