@@ -3,7 +3,7 @@
   <installations>
     <hudson.tasks.Maven_-MavenInstallation>
       <name>maven {{maven_version}}</name>
-      <home>{{maven_install_dir}}/apache-maven-{{maven_version}}</home>
+      <home>{{dev_tools_dir}}/apache-maven-{{maven_version}}</home>
       <properties/>
     </hudson.tasks.Maven_-MavenInstallation>
   </installations>
