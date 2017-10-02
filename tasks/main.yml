@@ -111,7 +111,7 @@
     name: "{{item}}"
     timeout: 30
   with_items: "{{jenkins_plugins}}"
-  notify: restart jenkins
+# notify: restart jenkins
 
 #- name: Start service
 #  service:
