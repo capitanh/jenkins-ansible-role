@@ -92,11 +92,13 @@
   with_items:
     - config.xml
     - hudson.tasks.Maven.xml
+    - hudson.plugins.gradle.Gradle.xml
+  notify: restart jenkins
 
-- name: Start service
-  service:
-    name: jenkins
-    state: restarted
+#- name: Start service
+#  service:
+#    name: jenkins
+#    state: restarted
 
 - name: Wait for jenkins restart
   wait_for:
@@ -109,9 +111,10 @@
     name: "{{item}}"
     timeout: 30
   with_items: "{{jenkins_plugins}}"
+  notify: restart jenkins
 
-- name: Start service
-  service:
-    name: jenkins
-    state: restarted
+#- name: Start service
+#  service:
+#    name: jenkins
+#    state: restarted
 

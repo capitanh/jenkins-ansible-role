@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.gradle.Gradle_-DescriptorImpl plugin="gradle@1.28">
+  <installations>
+    <hudson.plugins.gradle.GradleInstallation>
+      <name>Gradle {{gradle_version}}</name>
+      <home>/usr/lib/gradle-{{gradle_version}}</home>
+      <properties/>
+      <gradleHome>/usr/lib/gradle-{{gradle_version}}</gradleHome>
+    </hudson.plugins.gradle.GradleInstallation>
+  </installations>
+</hudson.plugins.gradle.Gradle_-DescriptorImpl>
