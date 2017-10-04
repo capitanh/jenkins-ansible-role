@@ -4,10 +4,11 @@
   <version>2.73.1</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
-  <useSecurity>true</useSecurity>
+  <useSecurity>false</useSecurity>
   <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
     <denyAnonymousReadAccess>true</denyAnonymousReadAccess>
   </authorizationStrategy>
+  <!--
   <securityRealm class="hudson.security.LDAPSecurityRealm" plugin="ldap@1.17">
     <disableMailAddressResolver>false</disableMailAddressResolver>
     <configurations>
@@ -36,6 +37,7 @@
     <groupIdStrategy class="jenkins.model.IdStrategy$CaseInsensitive"/>
     <disableRolePrefixing>true</disableRolePrefixing>
   </securityRealm>
+  -->
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>

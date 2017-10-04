@@ -101,8 +101,7 @@
 
 - name: Wait for jenkins restart
   wait_for:
-    path: /var/log/jenkins/jenkins.log
-    search_regex: Jenkins is fully up and running
+    port: "{{jenkins_port}}"
 
 - name: Install plugins
   jenkins_plugin:
