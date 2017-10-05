@@ -102,14 +102,14 @@
 - name: Wait for jenkins restart
   wait_for:
     port: "{{jenkins_port}}"
-    delay: 45
+    delay: 30
 
 - name: Install plugins
   jenkins_plugin:
     params: "{{jenkins_params}}"
     name: "{{item}}"
-    timeout: 30
     state: present
+    with_dependencies: yes
   with_items: "{{jenkins_plugins}}"
 
 - name: Start service
