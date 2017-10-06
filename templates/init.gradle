@@ -3,7 +3,7 @@ repositories {
     name 'localNexus'
     url 'http://localhost:{{nexus_port}}'
     credentials {
-      username '{{nexus_user}}'
-      password '{{nexus_password}}'
-    }    
+      username '{{nexus_repo_user}}'
+      password '{{nexus_repo_password}}'
+    }
   }
