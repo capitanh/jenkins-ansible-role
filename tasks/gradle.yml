@@ -13,3 +13,11 @@
     owner: root
     group: root
     mode: 0644
+
+- name: Copy init script to GRADLE_HOME
+  template:
+    src: init.gradle
+    dest: "{{dev_tools_dir}}/gradle-{{gradle_version}}/init.d/"
+    owner: root
+    group: root
+    mode: 0755

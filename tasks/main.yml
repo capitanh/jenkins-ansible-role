@@ -102,7 +102,7 @@
 - name: Wait for jenkins restart
   wait_for:
     port: "{{jenkins_port}}"
-    delay: 30
+    delay: 45
 
 - name: Install plugins
   jenkins_plugin:
