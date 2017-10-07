@@ -7,3 +7,4 @@ repositories {
       password '{{nexus_repo_password}}'
     }
   }
+}
