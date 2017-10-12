@@ -105,7 +105,7 @@
 
 - name: Wait for jenkins ready
   wait_for:
-    path: /var/log/jenkins
+    path: /var/log/jenkins/jenkins.log
     search_regex: Jenkins is fully up and running
 
 - name: Install plugins
