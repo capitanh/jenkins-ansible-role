@@ -1,10 +1,12 @@
-repositories {
-  maven {
-    name 'localNexus'
-    url 'http://localhost:{{nexus_port}}'
-    credentials {
-      username '{{nexus_repo_user}}'
-      password '{{nexus_repo_password}}'
-    }
-  }
+allprojects {
+	repositories {
+	  maven {
+	    name 'localNexus'
+	    url 'http://localhost:{{nexus_port}}'
+	    credentials {
+	      username '{{nexus_repo_user}}'
+	      password '{{nexus_repo_password}}'
+	    }
+	  }
+	}
 }

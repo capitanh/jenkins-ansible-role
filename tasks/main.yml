@@ -102,7 +102,11 @@
 - name: Wait for jenkins restart
   wait_for:
     port: "{{jenkins_port}}"
-    delay: 45
+
+- name: Wait for jenkins ready
+  wait_for:
+    path: /var/log/jenkins
+    search_regexp: Jenkins is fully up and running
 
 - name: Install plugins
   jenkins_plugin:
