@@ -104,7 +104,8 @@
 #    port: "{{jenkins_port}}"
 
 - name: Wait untils Jenkins web API is available
-  shell: "curl --silent -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/ABC"
+  #shell: "curl --silent -o /dev/null -w '%{http_code}' http://localhost:{{jenkins_port}}/cli"
+  shell: curl --head --silent http://localhost:8080/cli/
   register: result
   until: result.stdout.find("401") != -1
   retries: 20
