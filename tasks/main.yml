@@ -108,7 +108,7 @@
   register: result
   until: result.stdout.find("401") != -1
   retries: 20
-  delay: 1
+  delay: 2
 
 - name: Install plugins
   jenkins_plugin:
