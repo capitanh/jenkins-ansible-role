@@ -99,14 +99,16 @@
     name: jenkins
     state: restarted
 
-- name: Wait for jenkins restart
-  wait_for:
-    port: "{{jenkins_port}}"
+#- name: Wait for jenkins restart
+#  wait_for:
+#    port: "{{jenkins_port}}"
 
-- name: Wait for jenkins ready
-  wait_for:
-    path: /var/log/jenkins/jenkins.log
-    search_regex: Jenkins is fully up and running
+- name: Wait untils Jenkins web API is available
+  shell: curl --head --silent http://localhost:8080/cli/
+  register: result
+  until: result.stdout.find("200 OK") != -1
+  retries: 12
+  delay: 5
 
 - name: Install plugins
   jenkins_plugin:
