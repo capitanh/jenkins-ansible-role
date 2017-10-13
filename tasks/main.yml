@@ -113,6 +113,7 @@
     name: "{{item}}"
     state: present
     with_dependencies: yes
+    timeout: 60
   with_items: "{{jenkins_plugins}}"
 
 
