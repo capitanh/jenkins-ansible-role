@@ -113,8 +113,6 @@
     name: "{{item}}"
     state: present
     with_dependencies: yes
-    retries: 5
-    delay: 5
   with_items: "{{jenkins_plugins}}"
 
 
