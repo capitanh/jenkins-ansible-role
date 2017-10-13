@@ -114,6 +114,8 @@
     state: present
     with_dependencies: yes
   with_items: "{{jenkins_plugins}}"
+  retries: 5
+  delay: 5
 
 - name: Start service
   service:
