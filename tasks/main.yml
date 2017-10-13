@@ -115,8 +115,8 @@
   uri:
     url: "http://localhost:{{jenkins_port}}/cli"
     #status_code: 200
-  register: status
-  until: status == 200
+  register: status_code
+  until: status_code == 200
   retries: 20
   delay: 2
 
