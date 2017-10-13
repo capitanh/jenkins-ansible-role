@@ -114,6 +114,7 @@
 - name: Wait untils Jenkins web API is available
   uri:
     url: "http://localhost:{{jenkins_port}}/cli"
+    status_code: 0
     register: status
     until: status == 200
     retries: 20
