@@ -109,7 +109,9 @@
 
 - name: Install plugins
   jenkins_plugin:
-    params: "{{jenkins_params}}"
+    url_username: "{{jenkins_username}}"
+    url_password: "{{jenkins_password}}"
+    url: "{{jenkins_url}}"
     name: "{{item}}"
     state: present
     with_dependencies: yes
